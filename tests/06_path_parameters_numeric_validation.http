@@ -1,0 +1,72 @@
+@baseUrl = http://127.0.0.1:8000
+
+
+### 1. Get item 42
+# Expected status: 200
+# Expected response:
+# {"item_id": 42}
+
+GET {{baseUrl}}/items/42
+
+
+### 2. Get item 1
+# Expected status: 200
+# Expected response:
+# {"item_id": 1}
+
+GET {{baseUrl}}/items/1
+
+
+### 3. Get item details
+# Expected status: 200
+# Expected response:
+# {
+#   "item_id": 42,
+#   "q": null,
+#   "details": "Item details here"
+# }
+
+GET {{baseUrl}}/items/42/details
+
+
+### 4. Get item details with query parameter
+# Expected status: 200
+# Expected response:
+# {
+#   "item_id": 500,
+#   "q": "search",
+#   "details": "Item details here"
+# }
+
+GET {{baseUrl}}/items/500/details?q=search
+
+
+### 5. Get user profile
+# Expected status: 200
+# Expected response:
+# {
+#   "user_id": 123,
+#   "message": "User 123 profile"
+# }
+
+GET {{baseUrl}}/users/123
+
+
+### 6. Invalid item ID - below minimum
+# Expected status: 422
+# Reason: item_id must be >= 1
+#
+# Validation:
+# ge = 1
+
+GET {{baseUrl}}/items/0
+
+
+### 7. Invalid item ID - above maximum
+# Expected status: 422
+# Reason: item_id must be <= 1000
+#
+# Validation:
+# le = 1000
+
+GET {{baseUrl}}/items/1001

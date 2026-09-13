@@ -1,0 +1,8 @@
+@baseUrl = http://127.0.0.1:8000
+
+
+### GET /
+# Expected status: 200
+# Expected response: {"message":"Hello World"}
+
+GET {{baseUrl}}/

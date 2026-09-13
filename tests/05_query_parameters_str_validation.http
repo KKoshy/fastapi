@@ -1,0 +1,54 @@
+@baseUrl = http://127.0.0.1:8000
+
+
+### 1. Get all items
+# Expected status: 200
+# Expected response:
+# [
+#   {"item_name": "Foo"},
+#   {"item_name": "Bar"},
+#   {"item_name": "Baz"}
+# ]
+
+GET {{baseUrl}}/items/
+
+
+### 2. Filter items by q=Foo
+# Expected status: 200
+# Expected response:
+# [{"item_name": "Foo"}]
+
+GET {{baseUrl}}/items/?q=Foo
+
+
+### 3. Filter items by q=Bar
+# Expected status: 200
+# Expected response:
+# [{"item_name": "Bar"}]
+
+GET {{baseUrl}}/items/?q=Bar
+
+
+### 4. Search items
+# Expected status: 200
+# Expected response: []
+
+GET {{baseUrl}}/items/search/?q=test
+
+
+### 5. Search with pagination
+# Expected status: 200
+# Expected response: []
+
+GET {{baseUrl}}/items/search/?q=test&skip=0&limit=5
+
+
+### 6. Invalid query - q too short
+# Expected status: 422
+# Reason: q must contain at least 3 characters
+#
+# Expected validation error:
+# string_too_short
+# min_length = 3
+
+GET {{baseUrl}}/items/search/?q=ab

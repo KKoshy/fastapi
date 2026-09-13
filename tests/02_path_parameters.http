@@ -1,0 +1,36 @@
+@baseUrl = http://127.0.0.1:8000
+
+
+### 1. GET /items/42
+# Expected status: 200
+# Expected response: {"item_id":"42"}
+
+GET {{baseUrl}}/items/42
+
+
+### 2. GET /items/42/typed
+# Expected status: 200
+# Expected response: {"item_id":42}
+
+GET {{baseUrl}}/items/42/typed
+
+
+### 3. GET /users/me
+# Expected status: 200
+# Expected response: {"user_id":"the current user"}
+
+GET {{baseUrl}}/users/me
+
+
+### 4. GET /users/john
+# Expected status: 200
+# Expected response: {"user_id":"john"}
+
+GET {{baseUrl}}/users/john
+
+
+### 5. GET /items/abc/typed
+# Expected status: 422
+# Reason: item_id must be an integer
+
+GET {{baseUrl}}/items/abc/typed

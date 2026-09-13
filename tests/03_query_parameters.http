@@ -1,0 +1,31 @@
+@baseUrl = http://127.0.0.1:8000
+
+
+### 1. Default query parameters
+
+GET {{baseUrl}}/items/
+
+
+### 2. Only skip
+
+GET {{baseUrl}}/items/?skip=1
+
+
+### 3. Only limit
+
+GET {{baseUrl}}/items/?limit=2
+
+
+### 4. Skip and limit
+
+GET {{baseUrl}}/items/?skip=1&limit=2
+
+
+### 5. Path parameter without query parameter
+
+GET {{baseUrl}}/items/foo
+
+
+### 6. Path parameter + query parameter
+
+GET {{baseUrl}}/items/foo?q=search

@@ -1,0 +1,66 @@
+@baseUrl = http://127.0.0.1:8000
+
+
+### 1. Create item - all fields
+# Expected status: 200
+# Expected response:
+# {
+#   "name": "Foo",
+#   "description": "A very nice Item",
+#   "price": 10.5,
+#   "tax": 1.5
+# }
+
+POST {{baseUrl}}/items/
+Content-Type: application/json
+
+{
+    "name": "Foo",
+    "description": "A very nice Item",
+    "price": 10.5,
+    "tax": 1.5
+}
+
+
+### 2. Create item - optional fields omitted
+# Expected status: 200
+# Expected response:
+# {
+#   "name": "Bar",
+#   "description": null,
+#   "price": 20,
+#   "tax": null
+# }
+
+POST {{baseUrl}}/items/
+Content-Type: application/json
+
+{
+    "name": "Bar",
+    "price": 20
+}
+
+
+### 3. Missing required field: name
+# Expected status: 422
+# Reason: name is required
+
+POST {{baseUrl}}/items/
+Content-Type: application/json
+
+{
+    "price": 10.5
+}
+
+
+### 4. Invalid price
+# Expected status: 422
+# Reason: price must be a number
+
+POST {{baseUrl}}/items/
+Content-Type: application/json
+
+{
+    "name": "Foo",
+    "price": "not-a-number"
+}
