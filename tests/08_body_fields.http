@@ -1,0 +1,24 @@
+@baseUrl = http://127.0.0.1:8000
+
+### PUT /items/42
+
+# Expected status: 200
+# Expected response:
+# {
+# "item_id": 42,
+# "item": {
+# "name": "Laptop",
+# "description": "High-performance gaming laptop",
+# "price": 999.99,
+# "tax": null
+# }
+# }
+
+PUT {{baseUrl}}/items/42
+Content-Type: application/json
+
+{
+"name": "Laptop",
+"description": "High-performance gaming laptop",
+"price": 999.99
+}

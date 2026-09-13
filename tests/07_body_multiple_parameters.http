@@ -1,0 +1,153 @@
+@baseUrl = http://127.0.0.1:8000
+
+### 1. PUT /items/42/basic?q=test
+
+# Expected status: 200
+# Expected response:
+# {
+# "item_id": 42,
+# "q": "test",
+# "item": {
+# "name": "Foo",
+# "description": "The pretender",
+# "price": 42,
+# "tax": 3.2
+# }
+# }
+
+PUT {{baseUrl}}/items/42/basic?q=test
+Content-Type: application/json
+
+{
+"name": "Foo",
+"description": "The pretender",
+"price": 42,
+"tax": 3.2
+}
+
+### 2. PUT /items/42
+
+# Expected status: 200
+# Expected response:
+# {
+# "item_id": 42,
+# "item": {
+# "name": "Foo",
+# "description": "The pretender",
+# "price": 42,
+# "tax": 3.2
+# },
+# "user": {
+# "username": "dave",
+# "full_name": "Dave Grohl"
+# }
+# }
+
+PUT {{baseUrl}}/items/42
+Content-Type: application/json
+
+{
+"item": {
+"name": "Foo",
+"description": "The pretender",
+"price": 42,
+"tax": 3.2
+},
+"user": {
+"username": "dave",
+"full_name": "Dave Grohl"
+}
+}
+
+### 3. PUT /items/42/importance
+
+# Expected status: 200
+# Expected response:
+# {
+# "item_id": 42,
+# "item": {
+# "name": "Foo",
+# "description": null,
+# "price": 42,
+# "tax": null
+# },
+# "user": {
+# "username": "dave",
+# "full_name": null
+# },
+# "importance": 5
+# }
+
+PUT {{baseUrl}}/items/42/importance
+Content-Type: application/json
+
+{
+"item": {
+"name": "Foo",
+"price": 42
+},
+"user": {
+"username": "dave"
+},
+"importance": 5
+}
+
+### 4. PUT /items/42/full?q=search
+
+# Expected status: 200
+# Expected response:
+# {
+# "item_id": 42,
+# "item": {
+# "name": "Foo",
+# "description": null,
+# "price": 42,
+# "tax": null
+# },
+# "user": {
+# "username": "dave",
+# "full_name": null
+# },
+# "q": "search",
+# "importance": 5
+# }
+
+PUT {{baseUrl}}/items/42/full?q=search
+Content-Type: application/json
+
+{
+"item": {
+"name": "Foo",
+"price": 42
+},
+"user": {
+"username": "dave"
+},
+"importance": 5
+}
+
+### 5. PUT /items/42/embed
+
+# Expected status: 200
+# Expected response:
+# {
+# "item_id": 42,
+# "item": {
+# "name": "Foo",
+# "description": "The pretender",
+# "price": 42,
+# "tax": 3.2
+# }
+# }
+
+PUT {{baseUrl}}/items/42/embed
+Content-Type: application/json
+
+{
+"item": {
+"name": "Foo",
+"description": "The pretender",
+"price": 42,
+"tax": 3.2
+}
+}
