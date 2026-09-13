@@ -1,0 +1,24 @@
+@baseUrl = http://127.0.0.1:8000
+
+### PUT /items/550e8400-e29b-41d4-a716-446655440000
+# Expected status: 200
+# Expected response:
+# {
+# "item_id": "550e8400-e29b-41d4-a716-446655440000",
+# "start_datetime": "2024-01-15T10:30:00",
+# "end_datetime": "2024-01-15T15:30:00",
+# "process_after": 3600,
+# "repeat_at": "14:30:00",
+# "start_process": "2024-01-15T11:30:00",
+# "duration": 14400
+# }
+
+PUT {{baseUrl}}/items/550e8400-e29b-41d4-a716-446655440000
+Content-Type: application/json
+
+{
+"start_datetime": "2024-01-15T10:30:00",
+"end_datetime": "2024-01-15T15:30:00",
+"process_after": 3600,
+"repeat_at": "14:30:00"
+}

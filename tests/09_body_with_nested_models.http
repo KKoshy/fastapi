@@ -1,0 +1,91 @@
+@baseUrl = http://127.0.0.1:8000
+
+### 1. PUT /items/42
+# Expected status: 200
+# Expected response:
+# {
+# "item_id": 42,
+# "item": {
+# "name": "Laptop",
+# "description": null,
+# "price": 999.99,
+# "tax": null,
+# "tags": ["electronics"],
+# "image": {
+# "url": "https://example.com/laptop.jpg",
+# "name": "Laptop Image"
+# }
+# }
+# }
+
+PUT {{baseUrl}}/items/42
+Content-Type: application/json
+
+{
+"name": "Laptop",
+"price": 999.99,
+"tags": ["electronics"],
+"image": {
+"url": "https://example.com/laptop.jpg",
+"name": "Laptop Image"
+}
+}
+
+### 2. PUT /items/1/images
+# Expected status: 200
+# Expected response:
+# {
+# "item_id": 1,
+# "item": {
+# "name": "Gaming Setup",
+# "description": null,
+# "price": 1999.99,
+# "tax": null,
+# "images": [
+# {
+# "url": "https://example.com/setup1.jpg",
+# "name": "Main Setup"
+# },
+# {
+# "url": "https://example.com/setup2.jpg",
+# "name": "Side View"
+# }
+# ]
+# }
+# }
+
+PUT {{baseUrl}}/items/1/images
+Content-Type: application/json
+
+{
+"name": "Gaming Setup",
+"price": 1999.99,
+"images": [
+{
+"url": "https://example.com/setup1.jpg",
+"name": "Main Setup"
+},
+{
+"url": "https://example.com/setup2.jpg",
+"name": "Side View"
+}
+]
+}
+
+### 3. POST /index-weights/
+# Expected status: 200
+# Expected response:
+# {
+# "1": 0.5,
+# "2": 1,
+# "3": 0.75
+# }
+
+POST {{baseUrl}}/index-weights/
+Content-Type: application/json
+
+{
+"1": 0.5,
+"2": 1,
+"3": 0.75
+}
