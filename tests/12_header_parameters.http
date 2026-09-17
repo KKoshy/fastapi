@@ -1,0 +1,26 @@
+@baseUrl = http://127.0.0.1:8000
+
+### 1. GET /headers/info/
+# Expected status: 200
+# Expected response:
+# {
+# "user_agent": "TestClient/1.0",
+# "accept_language": "en-US"
+# }
+
+GET {{baseUrl}}/headers/info/
+User-Agent: TestClient/1.0
+Accept-Language: en-US
+
+### 2. GET /secure/data/
+# Expected status: 200
+# Expected response:
+# {
+# "data": "secret",
+# "token": "supersecrettoken",
+# "request_id": "req-123"
+# }
+
+GET {{baseUrl}}/secure/data/
+X-Token: supersecrettoken
+X-Request-ID: req-123

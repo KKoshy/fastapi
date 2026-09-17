@@ -1,0 +1,24 @@
+@baseUrl = http://127.0.0.1:8000
+
+### 1. GET /user/settings/
+# Expected status: 200
+# Expected response:
+# {
+# "session_id": "abc123",
+# "theme": "dark",
+# "language": "en"
+# }
+
+GET {{baseUrl}}/user/settings/
+Cookie: session_id=abc123
+
+### 2. GET /session/info/
+# Expected status: 200
+# Expected response:
+# {
+# "session_id": "mysession123",
+# "valid": true
+# }
+
+GET {{baseUrl}}/session/info/
+Cookie: session_id=mysession123
