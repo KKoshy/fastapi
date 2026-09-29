@@ -1,0 +1,23 @@
+@baseUrl = http://127.0.0.1:8000
+
+### 1. GET /items/?limit=10&offset=0&order_by=name
+
+# Expected status: 200
+
+# Expected response:
+
+# {
+
+# "filters": {
+
+# "limit": 10,
+
+# "offset": 0,
+
+# "order_by": "name"
+
+# }
+
+# }
+
+GET {{baseUrl}}/items/?limit=10&offset=0&order_by=name
