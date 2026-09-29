@@ -1,0 +1,19 @@
+```http
+@baseUrl = http://127.0.0.1:8000
+
+### GET /info/ - Custom headers
+# Expected status: 200
+# Expected response:
+# {
+#   "headers": {
+#     "x_token": "secret123",
+#     "x_request_id": "req-456",
+#     "accept_language": "en-US"
+#   }
+# }
+
+GET {{baseUrl}}/info/
+X-Token: secret123
+X-Request-ID: req-456
+Accept-Language: en-US
+```
