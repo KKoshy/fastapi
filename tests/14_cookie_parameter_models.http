@@ -1,0 +1,17 @@
+```http
+@baseUrl = http://127.0.0.1:8000
+
+### GET /preferences/ - Custom preferences
+# Expected status: 200
+# Expected response:
+# {
+#   "preferences": {
+#     "theme": "dark",
+#     "font_size": 16,
+#     "language": "en"
+#   }
+# }
+
+GET {{baseUrl}}/preferences/
+Cookie: theme=dark; font_size=16; language=en
+```
