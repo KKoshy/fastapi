@@ -1,0 +1,11 @@
+@baseUrl = http://127.0.0.1:8000
+
+### POST /items/ - Create item
+# Expected status: 201
+# Expected response:
+# {
+#   "name": "TestItem"
+# }
+
+POST {{baseUrl}}/items/?name=TestItem
+Accept: application/json

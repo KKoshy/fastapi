@@ -1,0 +1,42 @@
+```http
+@baseUrl = http://127.0.0.1:8000
+
+### 1. POST /items/
+# Expected status: 200
+# Expected response:
+# {
+#   "name": "Portal Gun",
+#   "description": null,
+#   "price": 42,
+#   "tax": null,
+#   "tags": []
+# }
+
+POST {{baseUrl}}/items/
+Content-Type: application/json
+
+{
+  "name": "Portal Gun",
+  "price": 42
+}
+
+### 2. GET /items/
+# Expected status: 200
+# Expected response:
+# [
+#   {
+#     "name": "Portal Gun",
+#     "description": null,
+#     "price": 42,
+#     "tax": null,
+#     "tags": []
+#   },
+#   {
+#     "name": "Plumbus",
+#     "description": null,
+#     "price": 32,
+#     "tax": null,
+#     "tags": []
+#   }
+```
+GET {{baseUrl}}/items/
