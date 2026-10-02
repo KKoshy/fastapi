@@ -1,0 +1,51 @@
+### ============================================
+### TheoryConsoleEndpoints
+### ============================================
+
+### 1. Create Item - expect 201
+POST http://127.0.0.1:8000/items/
+Content-Type: application/json
+
+{
+  "name": "Foo",
+  "price": 50.5
+}
+
+###
+
+### 2. Get Items
+GET http://127.0.0.1:8000/items/
+
+###
+
+### 3. Get Users
+GET http://127.0.0.1:8000/users/
+
+###
+
+### 4. Create Item - Summary
+POST http://127.0.0.1:8000/items-summary/
+Content-Type: application/json
+
+{
+  "name": "Product",
+  "description": "A product",
+  "price": 10.5
+}
+
+###
+
+### 5. Create Item - Docstring
+POST http://127.0.0.1:8000/items-docstring/
+Content-Type: application/json
+
+{
+  "name": "DocItem",
+  "description": "Item with docstring",
+  "price": 15
+}
+
+###
+
+### 6. Get Elements
+GET http://127.0.0.1:8000/elements/

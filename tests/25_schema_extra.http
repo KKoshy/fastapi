@@ -1,0 +1,12 @@
+### Schema Extra - Examples
+### Create Item
+
+POST http://127.0.0.1:8000/items/
+Content-Type: application/json
+
+{
+  "name": "Laptop",
+  "description": "A powerful laptop",
+  "price": 999.99,
+  "tax": 89.99
+}
