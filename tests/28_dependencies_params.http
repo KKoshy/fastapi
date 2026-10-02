@@ -1,0 +1,16 @@
+### ============================================
+### Dependencies - Common Parameters
+### ============================================
+
+### 1. GET items - default parameters
+GET http://127.0.0.1:8000/items/
+
+###
+
+### 2. GET items - custom query parameters
+GET http://127.0.0.1:8000/items/?q=test&skip=10&limit=50
+
+###
+
+### 3. GET users - default parameters
+GET http://127.0.0.1:8000/users/
