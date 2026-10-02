@@ -1,0 +1,33 @@
+```http
+@baseUrl = http://127.0.0.1:8000
+
+### POST /files/
+# Expected status: 200
+# Expected response:
+# {
+#   "file_size": 12,
+#   "token": "supersecret",
+#   "fileb_content_type": "text/plain"
+# }
+
+POST {{baseUrl}}/files/
+Content-Type: multipart/form-data; boundary=----FastAPIFormBoundary
+
+------FastAPIFormBoundary
+Content-Disposition: form-data; name="file"; filename="test.txt"
+Content-Type: text/plain
+
+Hello World!
+------FastAPIFormBoundary
+Content-Disposition: form-data; name="fileb"; filename="test.txt"
+Content-Type: text/plain
+
+Hello World!
+------FastAPIFormBoundary
+Content-Disposition: form-data; name="token"
+
+supersecret
+------FastAPIFormBoundary--
+```
+
+`file` contains **12 bytes** (`Hello World!`), while `fileb` is an `UploadFile`, so FastAPI can report its `content_type` as `text/plain`.

@@ -1,0 +1,15 @@
+```http
+@baseUrl = http://127.0.0.1:8000
+
+### POST /login/
+# Expected status: 200
+# Expected response:
+# {
+#   "username": "testuser"
+# }
+
+POST {{baseUrl}}/login/
+Content-Type: application/x-www-form-urlencoded
+
+username=testuser&password=secret123
+```

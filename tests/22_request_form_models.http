@@ -1,0 +1,5 @@
+### Register User - Success
+POST http://127.0.0.1:8000/register/
+Content-Type: application/x-www-form-urlencoded
+
+username=johndoe&email=john@example.com&password=secret123&full_name=John Doe

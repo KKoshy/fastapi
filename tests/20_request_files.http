@@ -1,0 +1,37 @@
+```http
+@baseUrl = http://127.0.0.1:8000
+
+### 1. POST /files/
+# Expected status: 200
+# Expected response:
+# {
+#   "file_size": 12
+# }
+
+POST {{baseUrl}}/files/
+Content-Type: multipart/form-data; boundary=----FastAPIFormBoundary
+
+------FastAPIFormBoundary
+Content-Disposition: form-data; name="file"; filename="test.txt"
+Content-Type: text/plain
+
+Hello World!
+------FastAPIFormBoundary--
+
+### 2. POST /uploadfile/
+# Expected status: 200
+# Expected response:
+# {
+#   "filename": "test.txt"
+# }
+
+POST {{baseUrl}}/uploadfile/
+Content-Type: multipart/form-data; boundary=----FastAPIFormBoundary
+
+------FastAPIFormBoundary
+Content-Disposition: form-data; name="file"; filename="test.txt"
+Content-Type: text/plain
+
+Hello World!
+------FastAPIFormBoundary--
+```

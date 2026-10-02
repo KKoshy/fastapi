@@ -1,0 +1,35 @@
+### ============================================
+### HTTPException & Custom Exception Handling
+### ============================================
+
+### 1. Get existing item
+GET http://127.0.0.1:8000/items/foo
+
+###
+
+### 2. Get existing item with custom error-header support
+GET http://127.0.0.1:8000/items-header/foo
+
+###
+
+### 3. Get existing unicorn
+GET http://127.0.0.1:8000/unicorns/charlie
+
+###
+
+### ============================================
+### Error Cases
+### ============================================
+
+### 4. Item not found - expect 404
+GET http://127.0.0.1:8000/items/bar
+
+###
+
+### 5. Item not found with custom header - expect 404
+GET http://127.0.0.1:8000/items-header/bar
+
+###
+
+### 6. Custom UnicornException - expect 418
+GET http://127.0.0.1:8000/unicorns/yolo
