@@ -1,0 +1,10 @@
+### jsonable_encoder - Update Item
+
+PUT http://127.0.0.1:8000/items/foo
+Content-Type: application/json
+
+{
+  "title": "Foo",
+  "timestamp": "2025-09-10T12:00:00",
+  "description": "A test item"
+}

@@ -1,0 +1,60 @@
+### ============================================
+### PUT vs PATCH - Item Updates
+### ============================================
+
+### 1. GET existing item
+GET http://127.0.0.1:8000/items/foo
+
+###
+
+### 2. PUT - Full replacement of item
+### Replaces the existing "bar" item completely.
+PUT http://127.0.0.1:8000/items/bar
+Content-Type: application/json
+
+{
+  "name": "Barz",
+  "description": null,
+  "price": 3
+}
+
+###
+
+### 3. PATCH - Partial update of item
+### Only price is changed; other existing fields are preserved.
+PATCH http://127.0.0.1:8000/items/bar
+Content-Type: application/json
+
+{
+  "price": 25.99
+}
+
+###
+
+### ============================================
+### Error Cases
+### ============================================
+
+### 4. GET - Non-existent item (expect 404)
+GET http://127.0.0.1:8000/items/nonexistent
+
+###
+
+### 5. PUT - Non-existent item (expect 404)
+PUT http://127.0.0.1:8000/items/nonexistent
+Content-Type: application/json
+
+{
+  "name": "Test",
+  "price": 10
+}
+
+###
+
+### 6. PATCH - Non-existent item (expect 404)
+PATCH http://127.0.0.1:8000/items/nonexistent
+Content-Type: application/json
+
+{
+  "price": 25.99
+}
