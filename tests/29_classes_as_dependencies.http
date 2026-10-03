@@ -1,0 +1,21 @@
+### ============================================
+### Classes as Dependencies
+### ============================================
+
+### 1. GET items - default parameters
+GET http://127.0.0.1:8000/items/
+
+###
+
+### 2. GET items - with search query
+GET http://127.0.0.1:8000/items/?q=Foo
+
+###
+
+### 3. GET items - with pagination
+GET http://127.0.0.1:8000/items/?skip=1&limit=2
+
+###
+
+### 4. GET users - default parameters
+GET http://127.0.0.1:8000/users/

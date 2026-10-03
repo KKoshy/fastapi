@@ -1,0 +1,16 @@
+### ============================================
+### Dependencies - Query or Cookie
+### ============================================
+
+### 1. No query parameter or cookie
+GET http://127.0.0.1:8000/items/
+
+###
+
+### 2. Query parameter provided
+GET http://127.0.0.1:8000/items/?q=test
+
+###
+
+### 3. Empty query parameter
+GET http://127.0.0.1:8000/items/?q=
