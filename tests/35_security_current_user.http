@@ -1,0 +1,7 @@
+### ============================================
+### Security - Get Current User
+### ============================================
+
+### 1. Get current user (expect 200)
+GET http://127.0.0.1:8000/users/me
+Authorization: Bearer test-token
