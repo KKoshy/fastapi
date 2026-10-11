@@ -1,0 +1,17 @@
+### ============================================
+### Dependencies with yield - Database Session
+### ============================================
+
+### 1. Create an item - expect 200
+POST http://127.0.0.1:8000/items/
+Content-Type: application/json
+
+{
+  "name": "Laptop",
+  "price": 999.99
+}
+
+###
+
+### 2. Get all items - expect 200
+GET http://127.0.0.1:8000/items/

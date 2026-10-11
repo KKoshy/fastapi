@@ -1,0 +1,18 @@
+### ============================================
+### OAuth2 Password Bearer - Security
+### ============================================
+
+### 1. Successful request - valid Bearer token (expect 200)
+GET http://127.0.0.1:8000/items/
+Authorization: Bearer fake-super-secret-token
+
+###
+
+### 2. Missing Authorization header (expect 401)
+GET http://127.0.0.1:8000/items/
+
+###
+
+### 3. Invalid Bearer token format (expect 401)
+GET http://127.0.0.1:8000/items/
+Authorization: Basic fake-super-secret-token
