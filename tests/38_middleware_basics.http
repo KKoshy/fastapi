@@ -1,0 +1,21 @@
+
+### 1. Root endpoint — expect 200
+GET http://127.0.0.1:8000/
+
+### 2. Get Foo — expect 200
+GET http://127.0.0.1:8000/items/foo
+
+### 3. Get Bar — expect 200
+GET http://127.0.0.1:8000/items/bar
+
+### 4. Get unknown item — expect 200
+GET http://127.0.0.1:8000/items/unknown
+
+### 5. Create a new item — expect 200
+POST http://127.0.0.1:8000/items/
+Content-Type: application/json
+
+{
+  "name": "test item",
+  "description": "A test item"
+}
