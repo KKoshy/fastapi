@@ -1,0 +1,24 @@
+
+### 1. Root endpoint — expect 200
+GET http://127.0.0.1:8000/
+Origin: http://localhost
+
+### 2. Get all items — expect 200
+GET http://127.0.0.1:8000/items/
+Origin: http://localhost
+
+### 3. Create an item — expect 200
+POST http://127.0.0.1:8000/items/
+Origin: http://localhost
+Content-Type: application/json
+
+{
+  "name": "Foo",
+  "description": "A very nice Item"
+}
+
+### 4. CORS preflight request — expect 200
+OPTIONS http://127.0.0.1:8000/items/
+Origin: http://localhost:8080
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: content-type
