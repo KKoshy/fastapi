@@ -1,0 +1,61 @@
+
+### 1. Get all heroes — expect 200
+GET http://127.0.0.1:8000/heroes/
+
+### 2. Create Spider-Man — expect 200
+POST http://127.0.0.1:8000/heroes/
+Content-Type: application/json
+
+{
+  "name": "Spider-Man",
+  "age": 25,
+  "secret_name": "Peter Parker"
+}
+
+### 3. Create Batman — expect 200
+POST http://127.0.0.1:8000/heroes/
+Content-Type: application/json
+
+{
+  "name": "Batman",
+  "age": 35,
+  "secret_name": "Bruce Wayne"
+}
+
+### 4. Get one hero using pagination — expect 200
+GET http://127.0.0.1:8000/heroes/?limit=1
+
+### 5. Skip the first hero — expect 200
+GET http://127.0.0.1:8000/heroes/?offset=1
+
+### 6. Get Spider-Man by ID — expect 200
+GET http://127.0.0.1:8000/heroes/1
+
+### 7. Update Spider-Man — expect 200
+PATCH http://127.0.0.1:8000/heroes/1
+Content-Type: application/json
+
+{
+  "name": "Updated Hero",
+  "age": 30
+}
+
+### 8. Delete Spider-Man — expect 200
+DELETE http://127.0.0.1:8000/heroes/1
+
+### 9. Get a non-existent hero — expect 404
+GET http://127.0.0.1:8000/heroes/999
+
+### 10. Update a non-existent hero — expect 404
+PATCH http://127.0.0.1:8000/heroes/999
+Content-Type: application/json
+
+{
+  "name": "Ghost Hero"
+}
+
+### 11. Verify deleted hero is gone — expect 404
+GET http://127.0.0.1:8000/heroes/1
+
+### 12. Delete a non-existent hero — expect 404
+DELETE http://127.0.0.1:8000/heroes/999
