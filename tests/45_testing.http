@@ -1,0 +1,6 @@
+
+### 1. Root endpoint — expect 200
+GET http://127.0.0.1:8000/
+
+### 2. Get item by ID — expect 200
+GET http://127.0.0.1:8000/items/42
