@@ -1,0 +1,12 @@
+
+### 1. FastAPI root endpoint
+GET http://127.0.0.1:8000/
+
+### 2. Serve HTML page
+GET http://127.0.0.1:8000/static/index.html
+
+### 3. Serve CSS stylesheet
+GET http://127.0.0.1:8000/static/styles.css
+
+### 4. Serve JavaScript file
+GET http://127.0.0.1:8000/static/script.js
