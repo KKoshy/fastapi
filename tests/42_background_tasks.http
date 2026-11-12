@@ -1,0 +1,15 @@
+
+### 1. Send notification in the background — expect 200
+POST http://127.0.0.1:8000/send-notification/test@example.com
+
+### 2. Register a user — expect 200
+POST http://127.0.0.1:8000/register
+Content-Type: application/json
+
+{
+  "username": "john_doe",
+  "email": "john@example.com"
+}
+
+### 3. Get all notifications — expect 200
+GET http://127.0.0.1:8000/notifications
