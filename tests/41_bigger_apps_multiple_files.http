@@ -1,0 +1,46 @@
+
+### 1. Root endpoint — expect 200
+GET http://127.0.0.1:8000/?token=jessica
+
+### 2. Get all users — expect 200
+GET http://127.0.0.1:8000/users/?token=jessica
+
+### 3. Get current user — expect 200
+GET http://127.0.0.1:8000/users/me?token=jessica
+
+### 4. Get user by username — expect 200
+GET http://127.0.0.1:8000/users/rick?token=jessica
+
+### 5. Get all items — expect 200
+GET http://127.0.0.1:8000/items/?token=jessica
+X-Token: fake-super-secret-token
+
+### 6. Get item by ID — expect 200
+GET http://127.0.0.1:8000/items/plumbus?token=jessica
+X-Token: fake-super-secret-token
+
+### 7. Update item — expect 200
+PUT http://127.0.0.1:8000/items/plumbus?token=jessica
+X-Token: fake-super-secret-token
+Content-Type: application/json
+
+{
+  "name": "The great Plumbus"
+}
+
+### 8. Admin endpoint — expect 200
+POST http://127.0.0.1:8000/admin/?token=jessica
+X-Token: fake-super-secret-token
+
+### 9. Missing query token — expect 422
+GET http://127.0.0.1:8000/users/
+
+### 10. Invalid query token — expect 400
+GET http://127.0.0.1:8000/?token=bob
+
+### 11. Missing X-Token header — expect 422
+GET http://127.0.0.1:8000/items/?token=jessica
+
+### 12. Invalid X-Token header — expect 400
+POST http://127.0.0.1:8000/admin/?token=jessica
+X-Token: wrong-token
