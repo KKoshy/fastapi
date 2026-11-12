@@ -1,0 +1,18 @@
+
+### 1. Root endpoint
+GET http://127.0.0.1:8000/
+
+### 2. Get all items
+GET http://127.0.0.1:8000/items/
+
+### 3. Get all users
+GET http://127.0.0.1:8000/users/
+
+### 4. OpenAPI JSON schema
+GET http://127.0.0.1:8000/openapi.json
+
+### 5. Swagger UI documentation
+GET http://127.0.0.1:8000/docs
+
+### 6. ReDoc documentation
+GET http://127.0.0.1:8000/redoc
