@@ -1,0 +1,70 @@
+
+@baseUrl = http://127.0.0.1:8000
+
+### 1. Welcome endpoint
+GET {{baseUrl}}/
+
+### 2. Data model demo
+GET {{baseUrl}}/models/demo
+
+### 3. Validate a valid user
+POST {{baseUrl}}/models/validate-user
+Content-Type: application/json
+
+{
+  "username": "test_user",
+  "email": "test@example.com",
+  "full_name": "Test User",
+  "password": "password123"
+}
+
+### 4. Validate a valid blog post
+POST {{baseUrl}}/models/validate-post
+Content-Type: application/json
+
+{
+  "title": "My Blog Post",
+  "content": "This is a sample blog post with enough content.",
+  "author_id": 1,
+  "tags": ["test", "demo"]
+}
+
+### 5. Get User model JSON schema
+GET {{baseUrl}}/models/schema/user
+
+### 6. Get available user roles
+GET {{baseUrl}}/models/roles
+
+### 7. Invalid user - password without a digit (Expected: 422)
+POST {{baseUrl}}/models/validate-user
+Content-Type: application/json
+
+{
+  "username": "test_user",
+  "email": "test@example.com",
+  "password": "passwordonly"
+}
+
+### 8. Invalid user - username too short (Expected: 422)
+POST {{baseUrl}}/models/validate-user
+Content-Type: application/json
+
+{
+  "username": "ab",
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+### 9. Invalid blog post - invalid tag (Expected: 422)
+POST {{baseUrl}}/models/validate-post
+Content-Type: application/json
+
+{
+  "title": "My Blog Post",
+  "content": "This is a sample blog post with enough content.",
+  "author_id": 1,
+  "tags": ["test", "not valid!"]
+}
+
+### 10. Invalid model schema (Expected: 404)
+GET {{baseUrl}}/models/schema/comment
